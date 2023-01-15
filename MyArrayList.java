@@ -30,7 +30,7 @@ class MyArrayList{
     }
     public String toString(){
         String result ="";
-        for(int i =0;i<arr.length;i++){
+        for(int i =0;i<count;i++){
             result = result + arr[i]+" ";
         }
         return result;
