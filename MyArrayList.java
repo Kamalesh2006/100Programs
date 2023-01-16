@@ -1,7 +1,7 @@
 class MyArrayList{
-    int size=5;
-    int count=0;
-    int[] arr = new int[5];
+    /*private*/ int size=5;
+    private int count=0;
+    private int[] arr = new int[5];
     public void insert(int a){
         if(count>size-1){
             int[] temp = arr.clone();
@@ -21,10 +21,13 @@ class MyArrayList{
                 index=i;
             }
         }
-        for(int i =index;i<arr.length-1;i++){
-            arr[i]=arr[i+1];
+        if(index !=-1){
+            for(int i =index;i<arr.length-1;i++){
+                arr[i]=arr[i+1];
+            }
+            arr[arr.length-1]=0;
+            count--;
         }
-        arr[arr.length-1]=0;
         //if not found then return -1
         return index;
     }
@@ -49,7 +52,7 @@ public class MyArrayListSolution{
         al.insert(9);
         System.out.println("Size "+al.size);
         System.out.println(al.toString());
-        al.delete(10);
+        System.out.println(al.delete(19));
         System.out.println(al.toString());
 
     }
