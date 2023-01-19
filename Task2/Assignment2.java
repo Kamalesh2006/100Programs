@@ -28,6 +28,11 @@ public class Assignment2 {
         dTail = result[1];
         DoublyListNode.print(dHead);
         DoublyListNode.printReverse(dTail);
+        result = DoublyListNode.deleteByPosition(dHead, dTail, 0);
+        dHead = result[0];
+        dTail = result[1];
+        DoublyListNode.print(dHead);
+        result = DoublyListNode.deleteByPosition(dHead, dTail, 10);
 
 
         
