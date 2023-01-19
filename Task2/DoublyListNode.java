@@ -97,7 +97,7 @@ class DoublyListNode{
                 return new DoublyListNode[]{head,tail};
 
             }
-            else if(pos==0){
+            else if(iterate.next==null && pos>2){
                 throw new LinkedListIndexOutOfBoundsException();
             }
 
