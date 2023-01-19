@@ -63,9 +63,11 @@ class ListNode {
         }
         if(pos==0){
             head = head.next;
-        }else{
+        }
+        else{
             iterate.next=iterate.next.next;
         }
+        
         return head;
         
     }
