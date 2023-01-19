@@ -5,8 +5,8 @@ class LinkedListIndexOutOfBoundsException extends Exception{
 class ListNode {
     //singly linked list node
 
-    int data;
-    ListNode next;
+    private int data;
+    private ListNode next;
 
     ListNode(int data){
         //constructor to initialize the instance variable
