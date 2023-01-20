@@ -8,7 +8,7 @@ class SinglyListNode {
 
     /**
      * 
-     * @param data to initialise the 
+     * @param data to initialise the instance data
      */
     SinglyListNode(int data){
 
