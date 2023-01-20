@@ -13,15 +13,20 @@ public class SpotAssignment3 {
                 setOfChecks.add(c);
             }
         }
-        
-        Iterator<Character> i = setOfChecks.iterator();
-        char[] ch = new char[setOfChecks.size()];
-        int start =0;
-        
-        while(i.hasNext()){
-            
-        }
+
         int result =0;
+        Set<Character> s= new HashSet<>();
+        for(String word: words){
+            s=new HashSet<>(setOfChecks);
+            for(int i =0;i<word.length()&& s.size()>0;i++){
+                if(s.contains(word.charAt(i))){
+                    s.remove(word.charAt(i));
+                }   
+            }
+            if(s.size()==0){
+                result++;
+            }
+        }
 
         
         return result;
@@ -29,7 +34,7 @@ public class SpotAssignment3 {
 
     public static void main(String[] args) {
         SpotAssignment3 three = new SpotAssignment3();
-        String[] x = {"ceo","alco","caaeio","ceai"};
+        String[] x = {"ceo","alco","caaeio","ceai","acoeaaco"};
         String[] y={"ec","oc","ceo"};
         System.out.println(three.findSuperString(x,y));
     }
