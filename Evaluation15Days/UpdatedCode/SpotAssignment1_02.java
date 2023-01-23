@@ -10,7 +10,7 @@ public class SpotAssignment1_02 {
      */
     public boolean isValid(String expression){
 
-        Stack<Character> stack = new Stack<>();
+        Stack<Character> bracesStack = new Stack<>(); //braces are pushed and popped out of the stack
         char[] ch = expression.toCharArray();
         int count =0;
 
@@ -20,22 +20,22 @@ public class SpotAssignment1_02 {
                 continue;
             }
 
-            //adding the brackets to the stack
+            //adding the brackets to the bracesStack
             if(ch[i]=='{' || ch[i]=='('|| ch[i]=='['){
                 if(ch[i+1]=='}'||ch[i+1]==')'|| ch[i+1]==']'){
                     return false;
                 }
-                stack.push(ch[i]);
+                bracesStack.push(ch[i]);
             }
 
-            //checking if the corresponding closing brackets are there in the stack
+            //checking if the corresponding closing brackets are there in the bracesStack
             else if(ch[i]=='}'||ch[i]==')'|| ch[i]==']'){
-                if(stack.size()==0){
+                if(bracesStack.size()==0){
                     return false;
                 }
                 else{
-                    if((ch[i]=='}'  && stack.peek()=='{')||(ch[i]==']' && ch[i]=='[')|| (ch[i]==')' && stack.peek()=='(')){
-                        stack.pop();
+                    if((ch[i]=='}'  && bracesStack.peek()=='{')||(ch[i]==']' && ch[i]=='[')|| (ch[i]==')' && bracesStack.peek()=='(')){
+                        bracesStack.pop();
                     }
                     else{
                         System.out.println("hi");
@@ -67,22 +67,22 @@ public class SpotAssignment1_02 {
         //this is the to check the last character of the expression
         int end = ch.length-1;
         if(ch[end]=='}'||ch[end]==')'|| ch[end]==']'){
-            if(stack.size()==0){
+            if(bracesStack.size()==0){
                 return false;
             }
             else{
-                if((ch[end]=='}'  && stack.peek()=='{')||(ch[end]==']' && ch[end]=='[')|| (ch[end]==')' && stack.peek()=='(')){
-                    stack.pop();
+                if((ch[end]=='}'  && bracesStack.peek()=='{')||(ch[end]==']' && ch[end]=='[')|| (ch[end]==')' && bracesStack.peek()=='(')){
+                    bracesStack.pop();
                 }
                 else{
                     return false;
                 }
             }
         }
-        return stack.isEmpty()&& count==0;
+        return bracesStack.isEmpty()&& count==0;
     }
 
-    
+
     public static void main(String[] args) {
         
         Scanner sh = new Scanner(System.in);
